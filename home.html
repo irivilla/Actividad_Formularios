@@ -9,30 +9,33 @@
 </head>
 
 <body>
-
     <div class="playground">
         <div class="card">
             <div class="card-title">
                 <p>DATOS DE ENVIO</p>
             </div>
             <div class="card-container">
-                <div class="acordeon uno">
-                    <input type="checkbox" id="acordeon-uno" class="toggle">
-                    <label for="acordeon-uno" class="acordeon-title">
-                        <p>Datos Personales</p>
-                        <span class="open-close">&times;</span>
-                    </label>
-                    <div class="acordeon-content">
-                        <form>
+                <form>
+                    <div class="acordeon uno">
+                        <input type="checkbox" id="acordeon-uno" class="toggle">
+                        <label for="acordeon-uno" class="acordeon-title">
+                            <p>Datos Personales</p>
+                            <span class="open-close">&times;</span>
+                        </label>
+                        <div class="acordeon-content">
                             <div class="form-row">
                                 <div class="form-col">
-                                    <label for="nombre">Nombre</label>
-                                    <input type="text" id="nombre" name="nombre">
+                                    <input type="text" id="nombre" name="nombre" required>
+                                    <label for="nombre" class="label">Nombre</label>
+                                    <div class="error-message">Este campo es obligatorio.</div>
                                 </div>
                                 <div class="form-col">
-                                    <label for="apellidos">Apellidos</label>
-                                    <input type="text" id="apellidos" name="apellidos">
+                                    <input type="text" id="apellidos" name="apellidos" required>
+                                    <label for="apellidos" class="label">Apellidos</label>
+                                    <div class="error-message">Este campo es obligatorio.</div>
                                 </div>
+
+
                             </div>
                             <div class="form-row">
                                 <div class="form-col">
@@ -41,147 +44,171 @@
                                 </div>
                                 <div class="form-col">
                                     <label for="email">Email</label>
-                                    <input type="email" id="email" name="email">
+                                    <input type="email" id="email" name="email" required>
+                                    <div class="error-message">Por favor, ingrese un email válido.</div>
                                 </div>
                             </div>
-                        </form>
+
+                            <label for="acordeon-dos" class="next-button">Siguiente</label>
+                        </div>
+
                     </div>
-                </div>
-                <div class="acordeon dos">
-                    <input type="checkbox" id="acordeon-dos" class="toggle">
-                    <label for="acordeon-dos" class="acordeon-title">
-                        <p>Resumen del Pedido</p>
-                        <span class="open-close">&times;</span>
-                    </label>
-                    <div class="acordeon-content">
-                        <form>
-                            <div class="form-row" style="display: flex; justify-content: space-between;">
-                                <p>Producto</p>
-                                <p>Precio</p>
-                            </div>
+                    <div class="acordeon dos">
+                        <input type="checkbox" id="acordeon-dos" class="toggle">
+                        <label for="acordeon-dos" class="acordeon-title">
+                            <p>Resumen del Pedido</p>
+                            <span class="open-close">&times;</span>
+                        </label>
+
+                        <div class="acordeon-content">
+                            <!-- Producto 1 -->
                             <div class="form-row">
-                                <label for="producto">Lenguas de gato </label>
+                                <label for="producto-1">Lenguas de gato</label>
                                 <div class="quantity-controls">
-                                    <button type="button" class="decrease">-</button>
-                                    <input type="number" class="producto" name="producto" value="3" min="0">
-                                    <button type="button" class="increase">+</button>
+                                    <input type="number" class="producto" id="producto-1" name="producto-1" value="3"
+                                        min="0" required>
                                 </div>
-                                <label class="price"><span id="precio">1</span> €</label>
+                                <label class="price"><span id="precio-1">1</span> €</label>
                             </div>
+
+                            <!-- Producto 2 -->
                             <div class="form-row">
-                                <label for="producto">Chicles de menta</label>
+                                <label for="producto-2">Chicles de menta</label>
                                 <div class="quantity-controls">
-                                    <button type="button" class="decrease">-</button>
-                                    <input type="number" class="producto" name="producto" value="10" min="0">
-                                    <button type="button" class="increase">+</button>
+                                    <input type="number" class="producto" id="producto-2" name="producto-2" value="10"
+                                        min="0" required>
                                 </div>
-                                <label class="price"><span id="precio">0.5</span> €</label>
+                                <label class="price"><span id="precio-2">0.5</span> €</label>
                             </div>
+
+                            <!-- Producto 3 -->
                             <div class="form-row">
-                                <label for="producto">Patatas fritas</label>
+                                <label for="producto-3">Patatas fritas</label>
                                 <div class="quantity-controls">
-                                    <button type="button" class="decrease">-</button>
-                                    <input type="number" class="producto" name="producto" value="5" min="0">
-                                    <button type="button" class="increase">+</button>
+                                    <input type="number" class="producto" id="producto-3" name="producto-3" value="5"
+                                        min="0" required>
                                 </div>
-                                <label class="price"><span id="precio">5</span> €</label>
+                                <label class="price"><span id="precio-3">5</span> €</label>
                             </div>
+
+                            <!-- Producto 4 -->
                             <div class="form-row">
-                                <label for="producto">Sugus de colores</label>
+                                <label for="producto-4">Sugus de colores</label>
                                 <div class="quantity-controls">
-                                    <button type="button" class="decrease">-</button>
-                                    <input type="number" class="producto" name="producto" value="100" min="0">
-                                    <button type="button" class="increase">+</button>
+                                    <input type="number" class="producto" id="producto-4" name="producto-4" value="100"
+                                        min="0" required>
                                 </div>
-                                <label class="price"><span id="precio">10</span> €</label>
+                                <label class="price"><span id="precio-4">10</span> €</label>
                             </div>
+
+                            <!-- Total (estático, sin cálculos dinámicos) -->
                             <div class="form-row"
-                                style="display: flex; justify-content: space-between; border-top: 1px solid rgb(224, 148, 163);;">
+                                style="display: flex; justify-content: space-between; border-top: 1px solid rgb(224, 148, 163);">
                                 <p>Total</p>
-                                <label class="price"><span id="precio" style="font-size: 1.5em;">16.5</span> €</label>
+                                <label class="price"><span id="precio-total" style="font-size: 1.5em;">16.5</span>
+                                    €</label>
                             </div>
-                        </form>
-                    </div>
 
-                </div>
-                <div class="acordeon tres">
-                    <input type="checkbox" id="acordeon-tres" class="toggle">
-                    <label for="acordeon-tres" class="acordeon-title">
-                        <p>Dirección de envío</p>
-                        <span class="open-close">&times;</span>
-                    </label>
-                    <div class="acordeon-content">
-                        <form>
-                            <div class="form-row">
-                                <div class="form-col">
-                                    <label for="via">Tipo de vía</label>
-                                    <input type="text" id="via" name="via">
-                                </div>
-                                <div class="form-col">
-                                    <label for="calle">Calle y Número</label>
-                                    <input type="text" id="calle" name="calle">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-col">
-                                    <label for="localidad">Localidad</label>
-                                    <input type="text" id="localidad" name="localidad">
-                                </div>
-                                <div class="form-col">
-                                    <label for="provincia">Provincia</label>
-                                    <input type="text" id="provincia" name="provincia">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-                <div class="acordeon cuatro">
-                    <input type="checkbox" id="acordeon-cuatro" class="toggle">
-                    <label for="acordeon-cuatro" class="acordeon-title">
-                        <p>Datos Bancarios</p>
-                        <span class="open-close">&times;</span>
-                    </label>
-                    <div class="acordeon-content" style="display: flex; justify-content: center; align-items: center; ">
-                        <div class="credit-card">
-                            <div class="card-header">
-                                <h2 class="card-title">Tarjeta de Crédito</h2>
-                                <p class="card-chip"></p>
-                            </div>
-                            <form class="card-form">
-                                <div class="form-row">
-                                    <label for="card-number">Número de Tarjeta</label>
-                                    <input type="number" id="card-number" name="card-number"
-                                        placeholder="1234 5678 9012 3456" maxlength="19">
-                                </div>
-                                <div class="form-row">
-                                    <label for="card-name">Nombre del Titular</label>
-                                    <input type="text" id="card-name" name="card-name" placeholder="Nombre Apellido">
-                                </div>
-                                <div class="form-row small-row">
-                                    <div>
-                                        <label for="expiry-date">Fecha de Expiración</label>
-                                        <input type="date" id="expiry-date" name="expiry-date" placeholder="MM/AA"
-                                            maxlength="5">
-                                    </div>
-                                    <div>
-                                        <label for="cvv">CVV</label>
-                                        <input type="number" id="cvv" name="cvv" placeholder="123" maxlength="3">
-                                    </div>
-                                </div>
-                            </form>
+                            <!-- Botón siguiente -->
+                            <label for="acordeon-tres" class="next-button">Siguiente</label>
                         </div>
                     </div>
 
 
-                </div>
-            </div>
+                    <div class="acordeon tres">
+                        <input type="checkbox" id="acordeon-tres" class="toggle">
+                        <label for="acordeon-tres" class="acordeon-title">
+                            <p>Dirección de envío</p>
+                            <span class="open-close">&times;</span>
+                        </label>
+                        <div class="acordeon-content">
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <input type="text" id="via" name="via" required>
+                                    <label for="via" class="label">Tipo de vía</label>
+                                    <div class="error-message">Este campo es obligatorio.</div>
+                                </div>
+                                <div class="form-col">
+                                    <input type="text" id="calle" name="calle" required>
+                                    <label for="calle" class="label">Calle y Número</label>
+                                    <div class="error-message">Este campo es obligatorio.</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <input type="text" id="localidad" name="localidad" required>
+                                    <label for="localidad" class="label">Localidad</label>
+                                    <div class="error-message">Este campo es obligatorio.</div>
+                                </div>
+                                <div class="form-col">
+                                    <input type="text" id="provincia" name="provincia" required>
+                                    <label for="provincia" class="label">Provincia</label>
+                                    <div class="error-message">Este campo es obligatorio.</div>
+                                </div>
+                            </div>
 
-            <div class="card-footer">
-                <button class="button" id="cancel">CANCELAR</button>
-                <button class="button" id="submit">ACEPTAR</button>
+                            <label for="acordeon-cuatro" class="next-button">Siguiente</label>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="acordeon cuatro">
+                        <input type="checkbox" id="acordeon-cuatro" class="toggle">
+                        <label for="acordeon-cuatro" class="acordeon-title">
+                            <p>Datos Bancarios</p>
+                            <span class="open-close">&times;</span>
+                        </label>
+                        <div class="acordeon-content"
+                            style="display: flex; justify-content: center; align-items: center;">
+                            <div class="credit-card">
+                                <div class="card-header">
+                                    <h2 class="card-title">Tarjeta de Crédito</h2>
+                                    <p class="card-chip"></p>
+                                </div>
+                                <div class="form-row">
+                                    <label for="card-number">Número de Tarjeta</label>
+                                    <input type="text" id="card-number" name="card-number"
+                                        placeholder="1234 5678 9012 3456" maxlength="19" required>
+                                    <div class="error-message">Por favor, ingrese un número de tarjeta válido.</div>
+                                </div>
+                                <div class="form-row">
+                                    <label for="card-name">Nombre del Titular</label>
+                                    <input type="text" id="card-name" name="card-name" placeholder="Nombre Apellido"
+                                        required>
+                                    <div class="error-message">Este campo es obligatorio.</div>
+                                </div>
+                                <div class="form-row small-row">
+                                    <div>
+                                        <label for="expiry-date">Fecha de Expiración</label>
+                                        <input type="date" id="expiry-date" name="expiry-date" required>
+                                        <div class="error-message">Por favor, ingrese una fecha de expiración
+                                            válida.
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="cvv">CVV</label>
+                                        <input type="number" id="cvv" name="cvv" placeholder="123" maxlength="3"
+                                            required>
+                                        <div class="error-message">Por favor, ingrese el código CVV.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-footer">
+
+                        <button class="button cancel" id="cancel" type="button">CANCELAR</button>
+                        <button class="button submit" id="submit" type="submit">FINALIZAR</button>
+
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
 </body>
 
 </html>

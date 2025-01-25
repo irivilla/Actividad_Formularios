@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra Dulce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="playground">
+        <div class="card">
+            <div class="card-title">
+                <p>DATOS DE ENVIO</p>
+            </div>
+            <div class="card-container">
+                <div class="acordeon uno">
+                    <input type="checkbox" id="acordeon-uno" class="toggle">
+                    <label for="acordeon-uno" class="acordeon-title">
+                        <p>Datos Personales</p>
+                        <span class="open-close">&times;</span>
+                    </label>
+                    <div class="acordeon-content">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" id="nombre" name="nombre">
+                                </div>
+                                <div class="form-col">
+                                    <label for="apellidos">Apellidos</label>
+                                    <input type="text" id="apellidos" name="apellidos">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <label for="direccion">Código Promocional</label>
+                                    <input type="text" id="direccion" name="direccion">
+                                </div>
+                                <div class="form-col">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="acordeon dos">
+                    <input type="checkbox" id="acordeon-dos" class="toggle">
+                    <label for="acordeon-dos" class="acordeon-title">
+                        <p>Resumen del Pedido</p>
+                        <span class="open-close">&times;</span>
+                    </label>
+                    <div class="acordeon-content">
+                        <form>
+                            <div class="form-row" style="display: flex; justify-content: space-between;">
+                                <p>Producto</p>
+                                <p>Precio</p>
+                            </div>
+                            <div class="form-row">
+                                <label for="producto">Lenguas de gato </label>
+                                <div class="quantity-controls">
+                                    <button type="button" class="decrease">-</button>
+                                    <input type="number" class="producto" name="producto" value="3" min="0">
+                                    <button type="button" class="increase">+</button>
+                                </div>
+                                <label class="price"><span id="precio">1</span> €</label>
+                            </div>
+                            <div class="form-row">
+                                <label for="producto">Chicles de menta</label>
+                                <div class="quantity-controls">
+                                    <button type="button" class="decrease">-</button>
+                                    <input type="number" class="producto" name="producto" value="10" min="0">
+                                    <button type="button" class="increase">+</button>
+                                </div>
+                                <label class="price"><span id="precio">0.5</span> €</label>
+                            </div>
+                            <div class="form-row">
+                                <label for="producto">Patatas fritas</label>
+                                <div class="quantity-controls">
+                                    <button type="button" class="decrease">-</button>
+                                    <input type="number" class="producto" name="producto" value="5" min="0">
+                                    <button type="button" class="increase">+</button>
+                                </div>
+                                <label class="price"><span id="precio">5</span> €</label>
+                            </div>
+                            <div class="form-row">
+                                <label for="producto">Sugus de colores</label>
+                                <div class="quantity-controls">
+                                    <button type="button" class="decrease">-</button>
+                                    <input type="number" class="producto" name="producto" value="100" min="0">
+                                    <button type="button" class="increase">+</button>
+                                </div>
+                                <label class="price"><span id="precio">10</span> €</label>
+                            </div>
+                            <div class="form-row"
+                                style="display: flex; justify-content: space-between; border-top: 1px solid rgb(224, 148, 163);;">
+                                <p>Total</p>
+                                <label class="price"><span id="precio" style="font-size: 1.5em;">16.5</span> €</label>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="acordeon tres">
+                    <input type="checkbox" id="acordeon-tres" class="toggle">
+                    <label for="acordeon-tres" class="acordeon-title">
+                        <p>Dirección de envío</p>
+                        <span class="open-close">&times;</span>
+                    </label>
+                    <div class="acordeon-content">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <label for="via">Tipo de vía</label>
+                                    <input type="text" id="via" name="via">
+                                </div>
+                                <div class="form-col">
+                                    <label for="calle">Calle y Número</label>
+                                    <input type="text" id="calle" name="calle">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <label for="localidad">Localidad</label>
+                                    <input type="text" id="localidad" name="localidad">
+                                </div>
+                                <div class="form-col">
+                                    <label for="provincia">Provincia</label>
+                                    <input type="text" id="provincia" name="provincia">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="acordeon cuatro">
+                    <input type="checkbox" id="acordeon-cuatro" class="toggle">
+                    <label for="acordeon-cuatro" class="acordeon-title">
+                        <p>Datos Bancarios</p>
+                        <span class="open-close">&times;</span>
+                    </label>
+                    <div class="acordeon-content" style="display: flex; justify-content: center; align-items: center; ">
+                        <div class="credit-card">
+                            <div class="card-header">
+                                <h2 class="card-title">Tarjeta de Crédito</h2>
+                                <p class="card-chip"></p>
+                            </div>
+                            <form class="card-form">
+                                <div class="form-row">
+                                    <label for="card-number">Número de Tarjeta</label>
+                                    <input type="number" id="card-number" name="card-number"
+                                        placeholder="1234 5678 9012 3456" maxlength="19">
+                                </div>
+                                <div class="form-row">
+                                    <label for="card-name">Nombre del Titular</label>
+                                    <input type="text" id="card-name" name="card-name" placeholder="Nombre Apellido">
+                                </div>
+                                <div class="form-row small-row">
+                                    <div>
+                                        <label for="expiry-date">Fecha de Expiración</label>
+                                        <input type="date" id="expiry-date" name="expiry-date" placeholder="MM/AA"
+                                            maxlength="5">
+                                    </div>
+                                    <div>
+                                        <label for="cvv">CVV</label>
+                                        <input type="number" id="cvv" name="cvv" placeholder="123" maxlength="3">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <button class="button" id="cancel">CANCELAR</button>
+                <button class="button" id="submit">ACEPTAR</button>
+            </div>
+        </div>
+</body>
+
+</html>

@@ -16,8 +16,26 @@
             </div>
             <div class="card-container">
                 <form>
+                    <div class="stepper">
+                        <div class="stepper-bar-wrap">
+                            <span class="stepper-bar" id="stepper-bar"></span>
+                        </div>
+                        <button class="stepper-step stepper-step-selected current-step" id="step-1">
+                            <span class="stepper-step-content">1</span>
+                        </button>
+                        <button class="stepper-step" id="step-2">
+                            <span class="stepper-step-content">2</span>
+                        </button>
+                        <button class="stepper-step" id="step-3">
+                            <span class="stepper-step-content">3</span>
+                        </button>
+                        <button class="stepper-step" id="step-4">
+                            <span class="stepper-step-content">4</span>
+                        </button>
+                    </div>
+
                     <div class="acordeon uno">
-                        <input type="checkbox" id="acordeon-uno" class="toggle">
+                        <input type="radio" id="acordeon-uno" class="toggle" name="checkout-acordeon">
                         <label for="acordeon-uno" class="acordeon-title">
                             <p>Datos Personales</p>
                             <span class="open-close">&times;</span>
@@ -54,7 +72,7 @@
 
                     </div>
                     <div class="acordeon dos">
-                        <input type="checkbox" id="acordeon-dos" class="toggle">
+                        <input type="radio" id="acordeon-dos" class="toggle" name="checkout-acordeon">
                         <label for="acordeon-dos" class="acordeon-title">
                             <p>Resumen del Pedido</p>
                             <span class="open-close">&times;</span>
@@ -116,7 +134,7 @@
 
 
                     <div class="acordeon tres">
-                        <input type="checkbox" id="acordeon-tres" class="toggle">
+                        <input type="radio" id="acordeon-tres" class="toggle" name="checkout-acordeon">
                         <label for="acordeon-tres" class="acordeon-title">
                             <p>Dirección de envío</p>
                             <span class="open-close">&times;</span>
@@ -156,7 +174,7 @@
 
 
                     <div class="acordeon cuatro">
-                        <input type="checkbox" id="acordeon-cuatro" class="toggle">
+                        <input type="radio" id="acordeon-cuatro" class="toggle" name="checkout-acordeon">
                         <label for="acordeon-cuatro" class="acordeon-title">
                             <p>Datos Bancarios</p>
                             <span class="open-close">&times;</span>
@@ -209,6 +227,81 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const stepBtn1 = document.getElementById("step-1");
+            const stepBtn2 = document.getElementById("step-2");
+            const stepBtn3 = document.getElementById("step-3");
+            const stepBtn4 = document.getElementById("step-4");
+
+            const acc1 = document.getElementById('acordeon-uno');
+            const acc2 = document.getElementById('acordeon-dos');
+            const acc3 = document.getElementById('acordeon-tres');
+            const acc4 = document.getElementById('acordeon-cuatro');
+
+            const stepperButtons = document.querySelectorAll('.stepper-step');
+            const stepperBar = document.getElementById('stepper-bar');
+
+            const update_stepper = () => {
+                stepperButtons.forEach(stepperButton => {
+                    stepperButton.classList.remove("stepper-step-selected");
+                    stepperButton.classList.remove("current-step");
+                });
+
+                if (acc1.checked) {
+                    stepBtn1.classList.add("stepper-step-selected");
+                    stepBtn1.classList.add("current-step");
+                    stepperBar.style.width = "0";
+                } else if (acc2.checked) {
+                    stepBtn1.classList.add("stepper-step-selected");
+                    stepBtn2.classList.add("stepper-step-selected");
+                    stepBtn2.classList.add("current-step");
+                    stepperBar.style.width = "33.34%";
+                } else if (acc3.checked) {
+                    stepBtn1.classList.add("stepper-step-selected");
+                    stepBtn2.classList.add("stepper-step-selected");
+                    stepBtn3.classList.add("stepper-step-selected");
+                    stepBtn3.classList.add("current-step");
+                    stepperBar.style.width = "66.67%";
+                } else if (acc4.checked) {
+                    stepBtn1.classList.add("stepper-step-selected");
+                    stepBtn2.classList.add("stepper-step-selected");
+                    stepBtn3.classList.add("stepper-step-selected");
+                    stepBtn4.classList.add("stepper-step-selected");
+                    stepBtn4.classList.add("current-step");
+                    stepperBar.style.width = "100%";
+                }
+            }
+
+            stepBtn1.addEventListener('click', function () {
+                acc1.checked = true;
+                update_stepper();
+            });
+
+            stepBtn2.addEventListener('click', function () {
+                acc2.checked = true;
+                update_stepper();
+            });
+
+            stepBtn3.addEventListener('click', function () {
+                acc3.checked = true;
+                update_stepper();
+            });
+
+            stepBtn4.addEventListener('click', function () {
+                acc4.checked = true;
+                update_stepper();
+            });
+
+            const radios = document.querySelectorAll('.toggle');
+
+            radios.forEach(radio => {
+                radio.addEventListener('change', function () {
+                    update_stepper();
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

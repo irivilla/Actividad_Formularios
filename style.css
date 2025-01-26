@@ -10,7 +10,7 @@ body {
   min-height: 100vh;
   height: fit-content;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   padding: 20px;
   background-image: url(img/fondoCaramero.png);
   background-size: 20%;
@@ -384,4 +384,81 @@ label {
 label:hover {
   transform: translateX(5px);
   opacity: 0.8;
+}
+
+/*Stepper*/
+
+.stepper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stepper>.stepper-step {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.stepper-step>span {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  color: gray;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s, border-color 0.5s, color 0.5s;
+}
+
+.stepper-step:hover>span {
+  background-color: rgb(224, 224, 224);
+}
+
+.stepper>.stepper-step-selected {
+  background-color: #e095a4;
+  border-color: #e095a4;
+}
+
+.stepper>.stepper-step-selected>span {
+  background-color: #e095a4;
+  color: white;
+}
+
+.stepper>.current-step {
+  width: 26px;
+  height: 26px;
+  padding: 2px;
+  border: 1px solid #e095a4;
+  background-color: white;
+}
+
+.stepper-bar-wrap {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: calc(100% - 4px);
+  height: 4px;
+  transform: translateY(-50%);
+  background-color: rgb(194, 194, 194);
+  z-index: 1;
+}
+
+.stepper-bar {
+  width: 0;
+  height: 100%;
+  background-color: #e095a4;
+  display: block;
+  transition: width 0.5s;
 }

@@ -2,7 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  font-family: 'Arial Rounded', 'Helvetica Rounded', sans-serif;
 }
 
 .playground {
@@ -35,7 +35,7 @@ body {
   border-radius: 15px;
   max-width: 70%;
   background: #fff;
-  box-shadow: 0 5px 10px rgba(120, 88, 88, 0.2);
+  box-shadow: 0 5px 10px rgba(120, 88, 88, 0.4);
 }
 
 .card-title {
@@ -44,11 +44,13 @@ body {
   padding: 3px 20px;
   font-weight: bold;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.3), 0 0 25px rgba(255, 255, 255, 0.6);
 }
+
 
 .card-container {
   padding: 20px 30px;
@@ -76,36 +78,43 @@ body {
 }
 
 .open-close {
-  font-size: 1em;
+  font-size: 1.2em;
+  padding-right: 10px;
+  padding-top: 8px;
   color: gray;
   transform: rotate(45deg);
-
 }
 
 .acordeon:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
+  transition-duration: 500ms;
   background-color: rgba(224, 148, 163, 0.1);
 
   .open-close {
     color: rgb(72, 72, 72);
   }
-
 }
 
 .acordeon-content {
   align-items: flex-start;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.5s ease;
   padding: 0 15px;
   font-size: 0.7em;
 
   .form-row {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: 5%;
     margin: 15px 0;
     width: 100%;
     padding: 0;
+  }
+
+  .form-row label{
+    flex:0.5;
   }
 
   .form-col {
@@ -126,13 +135,15 @@ body {
     background-color: #e095a4;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
     cursor: pointer;
+    transition: transform 0.5s ease-in-out;
   }
 
   .next-button:hover {
-    background-color: #e57f7f;
+    transform: scale(1.02);
+    box-shadow: 0 0 8px rgba(224, 148, 163, 0.5);
   }
 
   input:hover {
@@ -146,12 +157,22 @@ body {
     outline: none;
   }
 
+  input[type="number"] {
+    padding: 10px;
+    border: 2px solid rgb(194, 194, 194);
+    border-radius: 10px;
+    outline: none;
+    width: 90%;
+    transition: border-color 0.3s, background-color 0.3s;
+    text-align: center;
+  }
+
   input[type="text"],
   input[type="email"],
   input[type="password"] {
     padding: 10px;
     border: 2px solid rgb(194, 194, 194);
-    border-radius: 5px;
+    border-radius: 10px;
     outline: none;
     width: 90%;
     transition: border-color 0.3s, background-color 0.3s;
@@ -165,7 +186,6 @@ body {
   input:focus:valid {
     border-color: green;
   }
-
 
   .error-message {
     font-size: 0.875em;
@@ -192,10 +212,11 @@ body {
 /* PESTAÑA DE PRECIOS*/
 .quantity-controls {
   display: flex;
+  flex:0.5;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.5s, box-shadow 0.5s;
 }
 
 .quantity-controls:hover {
@@ -213,11 +234,12 @@ body {
 }
 
 .quantity-controls .quantity-input {
-  width: 50px;
+  /* width: 50px; */
+  width: 100%;
   text-align: center;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 5px;
+  border-radius: 10px;
+  padding: 10px;
   transition: transform 0.2s, border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -257,6 +279,8 @@ body {
 }
 
 .price {
+  flex:0.3;
+  text-align: right;
   margin-left: auto;
   font-weight: bold;
   color: #333;
@@ -333,7 +357,7 @@ body {
   color: white;
   border: none;
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
@@ -355,7 +379,7 @@ body {
   color: white;
   border: none;
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
@@ -381,10 +405,11 @@ label {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-label:hover {
-  transform: translateX(5px);
+/* label:hover {
+  transform: scale(1.01);
+  transition: transform 250ms;
   opacity: 0.8;
-}
+} */
 
 /*Stepper*/
 
@@ -397,8 +422,8 @@ label:hover {
 
 .stepper>.stepper-step {
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   background-color: white;
   border: 1px solid gray;
   border-radius: 50%;
@@ -437,8 +462,9 @@ label:hover {
 }
 
 .stepper>.current-step {
-  width: 26px;
-  height: 26px;
+  transition-duration: 250ms;
+  width: 32px;
+  height: 32px;
   padding: 2px;
   border: 1px solid #e095a4;
   background-color: white;
@@ -461,4 +487,11 @@ label:hover {
   background-color: #e095a4;
   display: block;
   transition: width 0.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }

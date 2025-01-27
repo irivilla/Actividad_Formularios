@@ -12,7 +12,7 @@
     <div class="playground">
         <div class="card">
             <div class="card-title">
-                <p>DATOS DE ENVIO</p>
+                <p>PROCESO DE COMPRA</p>
             </div>
             <div class="card-container">
                 <form>
@@ -122,7 +122,7 @@
                             <!-- Total (estático, sin cálculos dinámicos) -->
                             <div class="form-row"
                                 style="display: flex; justify-content: space-between; border-top: 1px solid rgb(224, 148, 163);">
-                                <p>Total</p>
+                                <p style="font-size: 1.5em;">Total</p>
                                 <label class="price"><span id="precio-total" style="font-size: 1.5em;">16.5</span>
                                     €</label>
                             </div>
@@ -249,25 +249,33 @@
                 });
 
                 if (acc1.checked) {
-                    stepBtn1.classList.add("stepper-step-selected");
+                    setTimeout(() => {
+                        stepBtn1.classList.add("stepper-step-selected");
+                    }, 500);
                     stepBtn1.classList.add("current-step");
                     stepperBar.style.width = "0";
                 } else if (acc2.checked) {
                     stepBtn1.classList.add("stepper-step-selected");
-                    stepBtn2.classList.add("stepper-step-selected");
+                    setTimeout(() => {
+                        stepBtn2.classList.add("stepper-step-selected");
+                    }, 500);
                     stepBtn2.classList.add("current-step");
                     stepperBar.style.width = "33.34%";
                 } else if (acc3.checked) {
                     stepBtn1.classList.add("stepper-step-selected");
                     stepBtn2.classList.add("stepper-step-selected");
-                    stepBtn3.classList.add("stepper-step-selected");
+                    setTimeout(() => {
+                        stepBtn3.classList.add("stepper-step-selected");
+                    }, 500);
                     stepBtn3.classList.add("current-step");
                     stepperBar.style.width = "66.67%";
                 } else if (acc4.checked) {
                     stepBtn1.classList.add("stepper-step-selected");
                     stepBtn2.classList.add("stepper-step-selected");
                     stepBtn3.classList.add("stepper-step-selected");
-                    stepBtn4.classList.add("stepper-step-selected");
+                    setTimeout(() => {
+                        stepBtn4.classList.add("stepper-step-selected");
+                    }, 500);
                     stepBtn4.classList.add("current-step");
                     stepperBar.style.width = "100%";
                 }
